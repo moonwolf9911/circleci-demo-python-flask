@@ -110,7 +110,7 @@ workflows:
       - build_TWO
       - test_two:
           requires:
-            - build_two
+            - build_TWO
 #       - build_three
 #       - test_three:
 #           requires:
