@@ -44,6 +44,9 @@ jobs:
       - run:
           name: Install linux-tools
           command: sudo apt-get install linux-tools
+      - run: 
+          name: Check if perf is installed
+          command: perf record /bin/ls
 
       - store_test_results:
           path: test-reports/
