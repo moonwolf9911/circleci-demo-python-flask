@@ -109,7 +109,9 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - build:
+        requires:
+          - hold
 #       - test_one:
 #           requires:
 #             - build
