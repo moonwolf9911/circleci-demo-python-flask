@@ -105,13 +105,28 @@ jobs:
 #   webhooks:
 #     # A list of hook hashes, containing the URL field
 #      - url: https://requestb.in/xpozh7xp
+
 workflows:
   version: 2
-  build_and_test:
+  testprod:
+    triggers:
+      - schedule:
+          cron: "* * * * *"
+          filters:
+            branches:
+              only: MYNEWBRANCH
     jobs:
-      - build:
-        requires:
-          - hold
+      - build
+
+
+
+
+
+  # build_and_test:
+  #   jobs:
+  #     - build:
+  #       requires:
+  #         - hold
 #       - test_one:
 #           requires:
 #             - build
