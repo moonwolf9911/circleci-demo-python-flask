@@ -108,13 +108,6 @@ jobs:
 
 workflows:
   version: 2
-  testprod:
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only: MYNEWBRANCH
     jobs:
       - build
 
