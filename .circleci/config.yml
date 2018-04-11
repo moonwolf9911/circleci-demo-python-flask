@@ -112,13 +112,13 @@ workflows:
   version: 2
   test_holds:
     jobs:
-      - build
-          # filters:
-          #   branches:
-          #     ignore: /.*/
-          #   tags:
-          #      only: /^v.*/
-      - build_TWO
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+               only: /^v.*/
+     # - build_TWO
       # - hold:
       #     type: approval
       #     requires:
