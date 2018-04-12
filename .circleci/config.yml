@@ -115,7 +115,7 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: /.*/
+              only: /testtags/
             tags:
                only: /^v.*/
      # - build_TWO
