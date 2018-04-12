@@ -118,12 +118,15 @@ workflows:
           #     only: /testtags/
           #   tags:
           #      only: /^v.*/
-     - build_TWO
+      - build_TWO
       - hold:
           type: approval
           requires:
             - build
             - build_TWO
+          filters:
+            branches:
+              only: /testtags/
       - build_three:
           requires: 
             - hold
