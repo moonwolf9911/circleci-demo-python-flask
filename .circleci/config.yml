@@ -82,13 +82,13 @@ jobs:
     steps:
       - checkout
       - run: echo "hi everyone!"
-  test_one:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-    steps:
-      - checkout
-      - run: mkdir a_new_folder
-      - run: echo "hello"
+  # test_one:
+  #   docker:
+  #     - image: circleci/python:3.6.2-stretch-browsers
+  #   steps:
+  #     - checkout
+  #     - run: mkdir a_new_folder
+  #     - run: echo "hello"
 #   test_two:
 #     docker:
 #       - image: circleci/python:3.6.2-stretch-browsers
@@ -112,21 +112,21 @@ workflows:
   version: 2
   test_holds:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: /testtags/
-            tags:
-               only: /^v.*/
-     # - build_TWO
-      # - hold:
-      #     type: approval
-      #     requires:
-      #       - build
-      #       - build_TWO
-      # - build_three:
-      #     requires: 
-      #       - hold
+      - build
+          # filters:
+          #   branches:
+          #     only: /testtags/
+          #   tags:
+          #      only: /^v.*/
+     - build_TWO
+      - hold:
+          type: approval
+          requires:
+            - build
+            - build_TWO
+      - build_three:
+          requires: 
+            - hold
 #       - test_three:
 #           requires:
 #             - build_three
