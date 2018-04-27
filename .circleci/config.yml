@@ -108,15 +108,13 @@ workflows:
   test_holds:
     jobs:
       - build
-      - build_TWO
-      - hold:
-          type: approval
-          requires:
-            - build
-            - build_TWO
       - build_three:
+          type: approval
           requires: 
-            - hold
+            - build
+      - build_TWO:
+          requires:
+            - build_three
 #       - test_three:
 #           requires:
 #             - build_three
