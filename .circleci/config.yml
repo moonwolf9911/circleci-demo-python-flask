@@ -83,7 +83,7 @@ jobs:
     steps:
       - checkout
       - run: mkdir a_new_folder
-      - run: echo "hello"
+      - run: echo "Hey-o!"
 #   test_two:
 #     docker:
 #       - image: circleci/python:3.6.2-stretch-browsers
