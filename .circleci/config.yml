@@ -1,3 +1,8 @@
+default_steps: &default_steps
+  - checkout
+  - run: mkdir test-reports
+
+
 version: 2
 jobs:
   build:
@@ -12,8 +17,9 @@ jobs:
           POSTGRES_DB: circle_test
           POSTGRES_PASSWORD: ""
     steps:
-      - checkout
-      - run: mkdir test-reports
+    <<: *default_steps
+      # - checkout
+      # - run: mkdir test-reports
       - run:
           name: Download Selenium
           command: |
