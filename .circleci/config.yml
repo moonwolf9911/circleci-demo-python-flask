@@ -69,7 +69,7 @@ jobs:
           FLASK_CONFIG: testing
           TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
     steps:
-      - checkout
+    #  - checkout
       - run: mkdir new-reports
   build_three:
     docker:
