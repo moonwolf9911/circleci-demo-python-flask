@@ -17,7 +17,7 @@ jobs:
           POSTGRES_DB: circle_test
           POSTGRES_PASSWORD: ""
     steps:
-    <<: *default_steps
+      <<: *default_steps
       # - checkout
       # - run: mkdir test-reports
       - run:
