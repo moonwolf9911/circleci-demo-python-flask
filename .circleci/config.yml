@@ -105,16 +105,6 @@ jobs:
 #      - url: https://requestb.in/xpozh7xp
 workflows:
   version: 2
-  build_cron:
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - build
   test_holds:
     jobs:
       - build
