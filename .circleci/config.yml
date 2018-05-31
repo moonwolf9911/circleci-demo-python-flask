@@ -117,6 +117,16 @@ workflows:
       - build_three:
           requires: 
             - hold
+  scheduled_workflow:
+    triggers:
+      - schedule:
+          cron: "40 * * * *"
+          filters:
+            branches:
+              only:
+                - awsconfig
+    jobs:
+      - build
 #       - test_three:
 #           requires:
 #             - build_three
